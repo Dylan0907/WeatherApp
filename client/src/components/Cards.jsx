@@ -1,17 +1,19 @@
 import React from 'react';
 import Card from './Card'
-export default function Cards({cities}) {
+export default function Cards(props) {
+  let cities = props.cities;
   return (
     <React.Fragment>
     {cities.map((c)=>{
       return <Card
-        max={c.main.temp_max}
-        min={c.main.temp_min}
+        id={c.id}
+        max={c.max}
+        min={c.min}
         name={c.name}
-        img={c.weather[0].icon}
-        onClose={() => alert(c.name)}
+        img={c.img}
+        onClose={props.onClose}
       />
-      })
+  })
     }
     </React.Fragment>
   )
