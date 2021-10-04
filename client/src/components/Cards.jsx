@@ -1,9 +1,12 @@
 import React from 'react';
 import Card from './Card'
+//Import CSS
+import './Cards.css';
+
 export default function Cards(props) {
   let cities = props.cities;
   return (
-    <React.Fragment>
+    <div className='cards'>
     {cities.map((c)=>{
       return <Card
         id={c.id}
@@ -13,8 +16,8 @@ export default function Cards(props) {
         img={c.img}
         onClose={props.onClose}
       />
-  })
+      })
     }
-    </React.Fragment>
+    </div>
   )
 };

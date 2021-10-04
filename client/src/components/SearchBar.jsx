@@ -19,7 +19,7 @@ export default function SearchBar({onSearch}) {
         placeholder="City..."
         onChange={(e)=> onChange(e)}
       />
-    <input type="submit" value="Add" />
+      <input type="submit" value="Add" />
     </form>
   );
 };

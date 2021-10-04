@@ -1,18 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+//Import CSS
+import './Card.css'
 
 export default function Card(props) {
-// acá va tu código
-let {id, max, min, name, img, onClose} = props
+
 return (
-  <div>
-    <button onClick={()=>onClose(id)}>x</button>
-    <h5>{name}</h5>
-    <div>
-      <h6>min: {min}</h6>
-      <h6>max: {max}</h6>
-      <img src={`http://openweathermap.org/img/wn/${img}@2x.png`}
-        alt={img}/>
+  <div className='container'>
+      <button onClick={()=>props.onClose(props.id)} className='button'>x</button>
+      <Link to={`/city/${props.id}`} >
+         <h4>{props.name}</h4>
+      </Link>
+      <table className='table'>
+        <tr>
+         <td className='row'>Min</td>
+         <td className='row'>Max</td>
+        </tr>
+        <tr>
+         <td className='row'>{props.min}</td>
+         <td className='row'>{props.max}</td>
+        </tr>
+      </table>
+      <img src={`http://openweathermap.org/img/wn/${props.img}@2x.png`}
+        alt={`${props.name}`}/>
     </div>
-  </div>
-)
+ );
 };
